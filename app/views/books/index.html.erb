@@ -1,0 +1,38 @@
+<!-- app/views/books/index.html.erb -->
+<h1>Books Listing</h1>
+
+<% if user_signed_in? %>
+  <!-- Display books listing only if user is signed in -->
+  <table>
+    <thead>
+      <tr>
+        <th>Book Title</th>
+        <th>Author</th>
+        <th>Description</th>
+        <th>Date of Publication</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @books.each do |book| %>
+        <tr>
+        <td><%= book.title %></td>
+        <td><%= book.author%></td>
+        <td><%= book.description%></td>
+        <td><%= book.published_at%></td>
+          <td>
+            <%= link_to 'Show', book_path(book) %>
+            <%= link_to 'Edit', edit_book_path(book) %>
+            <%= link_to 'Delete', book_path(book), method: :delete, data: { confirm: 'Are you sure?' } %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <p>Please <%= link_to 'Login', new_user_session_path %> or <%= link_to 'Sign up', new_user_registration_path %> to view books.</p>
+<% end %>
+
+<p>
+  <%= link_to 'Add new book', new_book_path %>
+</p>

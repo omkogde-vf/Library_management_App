@@ -1,0 +1,6 @@
+<!-- app/views/pages/home.html.erb -->
+<div class="container">
+<h1>Home Page</h1>
+<p>You are logged in as <%= current_user.email %>.</p>
+<%= button_to 'Logout', destroy_user_session_path, method: :delete %>
+</div>

@@ -1,0 +1,22 @@
+
+
+<div class="devise-container">
+  <div class="devise-box">
+  <h2>Log in</h2>
+    <%= form_with(model: resource, as: resource_name, url: session_path(resource_name), local: true) do |form| %>
+      <div>
+        <%= form.label :email %>
+        <%= form.email_field :email, autofocus: true, autocomplete: "email" %>
+      </div>
+
+      <div>
+        <%= form.label :password %>
+        <%= form.password_field :password, autocomplete: "current-password" %>
+      </div>
+
+      <div>
+        <%= form.submit "Log in" %>
+      </div>
+    <% end %>
+  </div>
+</div>
