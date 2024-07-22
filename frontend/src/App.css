@@ -1,7 +1,18 @@
+/* Ensure the App component styles center-align text */
 .App {
   text-align: center;
 }
 
+/* Container for the entire app with background image */
+.app-container {
+  background-size: cover;
+  background-position: center;
+  height: 100vh; /* Full viewport height */
+  display: flex;
+  flex-direction: column;
+}
+
+/* App logo animation and styling */
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -13,8 +24,9 @@
   }
 }
 
+/* Header styling with dark background and centered content */
 .App-header {
-  background-color: #282c34;
+  background-color: rgba(40, 44, 52, 0.8); /* Slightly transparent */
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -22,12 +34,20 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  padding: 20px;
 }
 
+/* Links styling within the app */
 .App-link {
   color: #61dafb;
+  text-decoration: none;
 }
 
+.App-link:hover {
+  text-decoration: underline;
+}
+
+/* Keyframes for spinning animation */
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
