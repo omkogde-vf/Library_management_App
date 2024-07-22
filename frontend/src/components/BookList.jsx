@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { deleteBook, getList } from '../lib/api/book';
 import './BookList.css'; // Import your CSS file here
@@ -30,11 +30,13 @@ function BookList() {
   };
 
   return (
-    <div className="container">
-      <h1>Books</h1>
-      <button className="btn btn-primary" onClick={() => navigate('/new')}>
-        Add Book
-      </button>
+    <div className="booklist-container">
+      <div className="header-container">
+        <h1 className="booklist-heading">Books List</h1>
+        <button className="btn-primary" onClick={() => navigate('/new')}>
+          Add Book
+        </button>
+      </div>
       <div className="table-responsive mt-3">
         <table className="table table-bordered">
           <thead>
