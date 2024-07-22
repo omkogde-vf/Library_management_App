@@ -1,7 +1,11 @@
 import { useRef } from "react";
+import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import './Auth.css';
 
-const Login = ({ setCurrUser, setShow }) => {
+const Login = ({ setCurrUser }) => {
   const formRef = useRef();
+  const navigate = useNavigate();
 
   const login = async (userInfo) => {
     const url = "http://localhost:3000/login"; // Adjust URL to match your API route
@@ -18,8 +22,11 @@ const Login = ({ setCurrUser, setShow }) => {
       if (!response.ok) throw data.error;
       const token = response.headers.get("Authorization");
       localStorage.setItem("authToken", token);
+      localStorage.setItem("isLoggedIn", "true"); // Save login state
+      toast.success('Successfully logged in!');
       setCurrUser(data);
     } catch (error) {
+      toast.error('Failed to log in');
       console.log("error", error);
     }
   };
@@ -37,22 +44,28 @@ const Login = ({ setCurrUser, setShow }) => {
 
   const handleClick = (e) => {
     e.preventDefault();
-    setShow(false);
+    navigate("/signup");
   };
 
   return (
-    <div>
-      <form ref={formRef} onSubmit={handleSubmit}>
-        Email: <input type="email" name="email" placeholder="email" />
-        <br />
-        Password: <input type="password" name="password" placeholder="password" />
-        <br />
-        <input type="submit" value="Login" />
-      </form>
-      <br />
-      <div>
-        Not registered yet, <a href="#signup" onClick={handleClick}>Signup</a>
+    <div className="auth-container">
+      <div className="auth-header">
+        <h1>Welcome to My Library</h1>
       </div>
+      <form className="auth-form" ref={formRef} onSubmit={handleSubmit}>
+        <div>
+          <label>Email</label>
+          <input type="email" name="email" placeholder="email" />
+        </div>
+        <div>
+          <label>Password</label>
+          <input type="password" name="password" placeholder="password" />
+        </div>
+        <button type="submit" className="auth-button">Login</button>
+        <div>
+          Not registered yet? <a href="#signup" onClick={handleClick}>Signup</a>
+        </div>
+      </form>
     </div>
   );
 };
