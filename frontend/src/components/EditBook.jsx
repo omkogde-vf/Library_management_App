@@ -1,7 +1,8 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { updateBook, getDetail } from '../lib/api/book';
 import BookForm from './BookForm';
+import './EditBook.css';  // Import your CSS file here
 
 function EditBook() {
   const [value, setValue] = useState({});
@@ -33,21 +34,25 @@ function EditBook() {
     e.preventDefault();
     try {
       await updateBook(query.id, value);
-      navigate('/');
+      navigate('/books');  // Navigate to the books list page after updating
     } catch (error) {
       console.error('Error updating book:', error);
     }
   };
 
   return (
-    <div className="container">
-      <h1>Edit Book</h1>
-      <BookForm
-        handleChange={handleChange}
-        handleSubmit={handleSubmit}
-        value={value}
-        buttonType="Update Book"
-      />
+    <div className="edit-container">
+      <div className="header-container">
+        <h1 className="booklist-heading">Edit Book</h1>
+      </div>
+      <div className="form-container">
+        <BookForm
+          handleChange={handleChange}
+          handleSubmit={handleSubmit}
+          value={value}
+          buttonType="Update Book"
+        />
+      </div>
     </div>
   );
 }
