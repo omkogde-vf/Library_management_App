@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { updateBook, getDetail } from '../lib/api/book';
+import { updateBook, getDetail } from '../../../lib/api/book';
 import BookForm from './BookForm';
-import './EditBook.css';  // Import your CSS file here
+import "../bookc/EditBook.css"
 
 function EditBook() {
   const [value, setValue] = useState({});

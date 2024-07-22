@@ -1,5 +1,5 @@
 import React from 'react';
-import './CurrentBook.css'; // Import the CSS file
+import '../bookc/CurrentBook.css'; // Import the CSS file
 import { Link } from 'react-router-dom'
 
 const CurrentBook = ({ book }) => {

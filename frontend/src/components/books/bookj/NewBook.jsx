@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import BookForm from './BookForm';
-import { createBook } from '../lib/api/book';
-import './NewBook.css';
+import { createBook } from '../../../lib/api/book';
+import '../bookc/NewBook.css';
 
 function NewBook({ addCurrentBook }) {
   const [value, setValue] = useState({});

@@ -2,7 +2,7 @@ import Signup from "./Signup";
 import Login from './Login';
 import Logout from './Logout';
 import { useState, useEffect } from "react";
-import PrivateText from "./PrivateText";
+import PrivateText from "../PrivateText";
 import BooksList from './BooksList';
 import BookForm from './BookForm';
 

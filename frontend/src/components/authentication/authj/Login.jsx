@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import './Auth.css';
+import '../authc/Auth.css';
 
 const Login = ({ setCurrUser }) => {
   const formRef = useRef();

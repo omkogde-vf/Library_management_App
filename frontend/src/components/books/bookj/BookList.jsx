@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import { deleteBook, getList } from '../lib/api/book';
-import './BookList.css'; // Import your CSS file here
+import { deleteBook, getList } from '../../../lib/api/book';
+import "../bookc/BookList.css";// Import your CSS file here
 
 function BookList() {
   const [dataList, setDataList] = useState([]);
