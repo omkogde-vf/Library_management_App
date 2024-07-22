@@ -37,8 +37,8 @@ function BookForm({ handleChange, handleSubmit, value, buttonType }) {
       <input
         type="date"
         id="publishedDate"
-        name="publishedDate"
-        value={value.publishedDate || ''}
+        name="publication_date"
+        value={value.publication_date || ''}
         onChange={handleChange}
         required
       />
