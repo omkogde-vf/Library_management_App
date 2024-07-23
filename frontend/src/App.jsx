@@ -20,9 +20,16 @@ const App = () => {
   const [currentBook, setCurrentBook] = useState(null);
 
   useEffect(() => {
+    // Check login status on component mount
     const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
     setUserLoggedIn(isLoggedIn);
   }, []);
+
+  // Function to handle user login status change
+  const handleLoginStatusChange = (status) => {
+    setUserLoggedIn(status);
+    localStorage.setItem('isLoggedIn', status);
+  };
 
   const addCurrentBook = (book) => {
     setCurrentBook(book);
@@ -42,7 +49,7 @@ const App = () => {
       <div className="app-container" style={backgroundStyle}>
         {isUserLoggedIn ? (
           <>
-            <Header setUserLoggedIn={setUserLoggedIn} />
+            <Header setUserLoggedIn={handleLoginStatusChange} />
             <div className="content">
               <Routes>
                 <Route path="/" element={<Home />} />
@@ -58,8 +65,8 @@ const App = () => {
         ) : (
           <div className="app-container" style={backgroundStyle}>
             <Routes>
-              <Route path="/login" element={<Login setCurrUser={setUserLoggedIn} />} />
-              <Route path="/signup" element={<Signup setCurrUser={setUserLoggedIn} />} />
+              <Route path="/login" element={<Login setCurrUser={handleLoginStatusChange} />} />
+              <Route path="/signup" element={<Signup setCurrUser={handleLoginStatusChange} />} />
               <Route path="*" element={<Navigate to="/login" />} />
             </Routes>
           </div>
