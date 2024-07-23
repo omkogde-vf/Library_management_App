@@ -11,7 +11,9 @@ Rails.application.routes.draw do
       registrations: 'users/registrations'
     }
 
-  resources :books, only: [:index, :create, :show, :update, :destroy]
+  defaults format: :json do  
+    resources :books, only: [:index, :create, :show, :update, :destroy]
+  end
 
   get '/private/test', to: 'private#test'
 
