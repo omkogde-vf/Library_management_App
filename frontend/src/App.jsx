@@ -1,6 +1,5 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
-import { useState, useEffect } from 'react';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Home from './components/frontpage/fj/Home';
@@ -22,15 +21,18 @@ const App = () => {
   useEffect(() => {
     // Check login status on component mount
     const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
-    setUserLoggedIn(isLoggedIn);
+    const authToken = localStorage.getItem('authToken');
+    setUserLoggedIn(isLoggedIn && authToken); // Ensure token exists
   }, []);
 
   // Function to handle user login status change
   const handleLoginStatusChange = (status) => {
-    if(isUserLoggedIn)
-      setUserLoggedIn(false);
-    else
-    setUserLoggedIn(true);
+    setUserLoggedIn(status);
+    localStorage.setItem('isLoggedIn', status.toString());
+    if (!status) {
+      localStorage.removeItem('authToken');
+      localStorage.removeItem('isLoggedIn');
+    }
   };
 
   const addCurrentBook = (book) => {
@@ -68,7 +70,7 @@ const App = () => {
           <div className="app-container" style={backgroundStyle}>
             <Routes>
               <Route path="/login" element={<Login setCurrUser={handleLoginStatusChange} />} />
-              <Route path="/signup" element={<Signup setCurrUser={handleLoginStatusChange} />} />
+              <Route path="/signup" element={<Signup />} />
               <Route path="*" element={<Navigate to="/login" />} />
             </Routes>
           </div>

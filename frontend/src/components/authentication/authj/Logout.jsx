@@ -1,4 +1,3 @@
-import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const Logout = ({ setCurrUser }) => {
@@ -10,16 +9,16 @@ const Logout = ({ setCurrUser }) => {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",
-          "Authorization": localStorage.getItem("token")
+          "Authorization": localStorage.getItem("authToken")
         },
       });
       if (!response.ok) {
         throw new Error('Logout failed');
       }
-      const data = await response.json();
       localStorage.removeItem("authToken");
       localStorage.removeItem("isLoggedIn");
       setCurrUser(false);
+      navigate("/login");
     } catch (error) {
       console.error('Logout error:', error);
     }

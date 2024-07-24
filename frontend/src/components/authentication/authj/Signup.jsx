@@ -1,16 +1,16 @@
-import React, { useState } from 'react';
-import {useNavigate} from 'react-router-dom'
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import '../authc/Auth.css';
 
-const Signup = ({ setCurrUser ,setShow}) => {
+const Signup = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [passwordConfirmation, setPasswordConfirmation] = useState('');
   const navigate = useNavigate();
 
   const handleSignup = async (e) => {
-     //e.preventDefault();
+    e.preventDefault();
     const user = {
       user: {
         email,
@@ -27,13 +27,10 @@ const Signup = ({ setCurrUser ,setShow}) => {
         body: JSON.stringify(user)
       });
       if (!response.ok) throw new Error('Failed to sign up');
-      const data = await response.json();
-      toast.success('Successfully signed up!')
-      setCurrUser(data.user);
+      toast.success('Successfully signed up!');
       navigate("/login"); // Navigate to login page after signup
-       setShow(true); // Switch to login screen after signup
     } catch (error) {
-      toast.error('Failed to sign up')
+      toast.error('Failed to sign up');
       console.error(error);
     }
   };
@@ -45,43 +42,43 @@ const Signup = ({ setCurrUser ,setShow}) => {
 
   return (
     <div className='auth-container'>
-       <div className="auth-header">
+      <div className="auth-header">
         <h1>Welcome to My Library</h1>
       </div>
-    <form className='auth-form' onSubmit={handleSignup}>
-      <div>
-        <label>Email</label>
-        <input
-          type="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
-      </div>
-      <div>
-        <label>Password</label>
-        <input
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
-      </div>
-      <div>
-        <label>Confirm Password</label>
-        <input
-          type="password"
-          value={passwordConfirmation}
-          onChange={(e) => setPasswordConfirmation(e.target.value)}
-          required
-        />
-      </div>
-      <button  type="submit">Sign Up</button>
-      <br />
-        Already registered, <a href="#login" onClick={handleClick}>Login</a> here.
-    </form>
+      <form className='auth-form' onSubmit={handleSignup}>
+        <div>
+          <label>Email</label>
+          <input
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+        </div>
+        <div>
+          <label>Password</label>
+          <input
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+        </div>
+        <div>
+          <label>Confirm Password</label>
+          <input
+            type="password"
+            value={passwordConfirmation}
+            onChange={(e) => setPasswordConfirmation(e.target.value)}
+            required
+          />
+        </div>
+        <button type="submit" className="auth-button">Signup</button>
+        <div>
+          Already registered? <a href="#login" onClick={handleClick}>Login</a>
+        </div>
+      </form>
     </div>
-
   );
 };
 

@@ -19,12 +19,13 @@ const Login = ({ setCurrUser }) => {
         body: JSON.stringify(userInfo),
       });
       const data = await response.json();
-      if (!response.ok) throw data.error;
+      if (!response.ok) throw new Error('Login failed');
       const token = response.headers.get("Authorization");
       localStorage.setItem("authToken", token);
       localStorage.setItem("isLoggedIn", "true"); // Save login state
       toast.success('Successfully logged in!');
-      setCurrUser(data);
+      setCurrUser(true);
+      navigate('/');
     } catch (error) {
       toast.error('Failed to log in');
       console.log("error", error);
@@ -55,11 +56,11 @@ const Login = ({ setCurrUser }) => {
       <form className="auth-form" ref={formRef} onSubmit={handleSubmit}>
         <div>
           <label>Email</label>
-          <input type="email" name="email" placeholder="email" />
+          <input type="email" name="email" placeholder="email" required />
         </div>
         <div>
           <label>Password</label>
-          <input type="password" name="password" placeholder="password" />
+          <input type="password" name="password" placeholder="password" required />
         </div>
         <button type="submit" className="auth-button">Login</button>
         <div>
