@@ -1,3 +1,4 @@
+// NewBook.js
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import BookForm from './BookForm';
@@ -28,7 +29,7 @@ function NewBook({ addCurrentBook }) {
   };
 
   return (
-    <div className="container">
+    <div className="new-book-container">
       <div className="form-container">
         <h1>New Book</h1>
         <BookForm
