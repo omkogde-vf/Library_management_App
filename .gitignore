@@ -87,3 +87,5 @@
 /frontend/yarn-debug.log*
 /frontend/yarn-error.log*
 node_modules/
+frontend/src/components/user/User.jsx
+frontend/src/components/PrivateText.jsx
