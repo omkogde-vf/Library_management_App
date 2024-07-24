@@ -1,4 +1,3 @@
-import React from 'react';
 import '../bookc/CurrentBook.css'; // Import the CSS file
 import { Link } from 'react-router-dom'
 

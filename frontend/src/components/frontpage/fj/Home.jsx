@@ -1,5 +1,4 @@
 // components/Home.js
-import React from 'react';
 import { Link } from 'react-router-dom';
 import '../fc/Home.css';
 import backgroundImage from '../../../background.jpg';

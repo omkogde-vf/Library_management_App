@@ -1,5 +1,4 @@
 // components/About.js
-import React from 'react';
 import '../fc/About.css';
 
 const About = () => {
