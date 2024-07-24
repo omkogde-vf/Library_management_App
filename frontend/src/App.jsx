@@ -27,8 +27,10 @@ const App = () => {
 
   // Function to handle user login status change
   const handleLoginStatusChange = (status) => {
-    setUserLoggedIn(status);
-    localStorage.setItem('isLoggedIn', status);
+    if(isUserLoggedIn)
+      setUserLoggedIn(false);
+    else
+    setUserLoggedIn(true);
   };
 
   const addCurrentBook = (book) => {
