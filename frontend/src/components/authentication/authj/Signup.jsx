@@ -10,7 +10,7 @@ const Signup = ({ setCurrUser ,setShow}) => {
   const navigate = useNavigate();
 
   const handleSignup = async (e) => {
-    // e.preventDefault();
+     //e.preventDefault();
     const user = {
       user: {
         email,
@@ -28,7 +28,6 @@ const Signup = ({ setCurrUser ,setShow}) => {
       });
       if (!response.ok) throw new Error('Failed to sign up');
       const data = await response.json();
-      localStorage.setItem('token', data.jwt); // assuming your backend responds with a JWT token
       toast.success('Successfully signed up!')
       setCurrUser(data.user);
       navigate("/login"); // Navigate to login page after signup

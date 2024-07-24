@@ -1,29 +1,40 @@
-const Logout =({setCurrUser})=>{
-    const logout=async (setCurrUser)=>{
-        try {
-            const response=await fetch("http://localhost:3000/logout",{
-                method: "delete",
-                headers: {
-                    "content-type": "application/json",
-                    "authorization": localStorage.getItem("token")
-                },
-            })
-            const data=await response.json()
-            if(!response.ok) throw data.error
-            localStorage.removeItem("token")
-            setCurrUser(null)
-        } catch (error) {
-            console.log("error", error)
-        }
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+
+const Logout = ({ setCurrUser }) => {
+  const navigate = useNavigate();
+
+  const logout = async () => {
+    try {
+      const response = await fetch("http://localhost:3000/logout", {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": localStorage.getItem("token")
+        },
+      });
+      if (!response.ok) {
+        throw new Error('Logout failed');
+      }
+      const data = await response.json();
+      localStorage.removeItem("authToken");
+      localStorage.removeItem("isLoggedIn");
+      setCurrUser(false);
+    } catch (error) {
+      console.error('Logout error:', error);
     }
-    const handleClick=e=>{
-        e.preventDefault()
-         logout(setCurrUser)
-    }
-    return (
-        <div>
-            <input type="button" value='Logout' onClick={handleClick}/>
-        </div>
-    )
-}
-export default Logout
+  };
+
+  const handleClick = (e) => {
+    e.preventDefault();
+    logout();
+  };
+
+  return (
+    <div>
+      <input type="button" value="Logout" onClick={handleClick} />
+    </div>
+  );
+};
+
+export default Logout;
