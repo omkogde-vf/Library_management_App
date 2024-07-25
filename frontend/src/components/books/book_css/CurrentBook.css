@@ -1,0 +1,25 @@
+.current-book-container {
+    background: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 600px;
+    text-align: left;
+  }
+  
+  .current-book-title {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 15px;
+    text-align: center;
+  }
+  
+  .current-book-container p {
+    margin: 10px 0;
+  }
+  
+  .current-book-container strong {
+    color: #007bff; /* Blue color for labels */
+  }
+  
