@@ -1,15 +1,8 @@
 import client from './client';
 
-// Fetch list of books
-export const getList = () => {
-  return client.get('/books');
-};
+export const getList = () => client.get('/books');
 
-// Fetch details of a single book
-export const getDetail = (id) => {
-  return client.get(`/books/${id}`);
-};
-
+export const getDetail = (id) => client.get(`/books/${id}`);
 
 export const createBook = async (params) => {
   try {
@@ -23,13 +16,6 @@ export const createBook = async (params) => {
   }
 };
 
+export const updateBook = (id, params) => client.put(`/books/${id}`, params);
 
-// Update an existing book
-export const updateBook = (id, params) => {
-  return client.put(`/books/${id}`, params);
-};
-
-// Delete a book
-export const deleteBook = (id) => {
-  return client.delete(`/books/${id}`);
-};
+export const deleteBook = (id) => client.delete(`/books/${id}`);
