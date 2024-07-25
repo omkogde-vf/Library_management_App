@@ -1,6 +1,6 @@
 // components/Home.js
 import { Link } from 'react-router-dom';
-import '../fc/Home.css';
+import '../frontend_css/Home.css';
 import backgroundImage from '../../../background.jpg';
 
 const Home = () => {

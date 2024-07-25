@@ -1,7 +1,7 @@
 // components/Header.js
 import { Link } from 'react-router-dom';
 import Logout from '../../authentication/authentication_jsx/Logout';
-import '../fc/Header.css';
+import '../frontend_css/Header.css';
 
 const Header = ({ setUserLoggedIn }) => {
   return (

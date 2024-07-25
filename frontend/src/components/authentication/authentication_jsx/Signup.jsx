@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import '../authc/Auth.css';
+import '../authentication_css/Auth.css';
 
 const Signup = () => {
   const [email, setEmail] = useState('');

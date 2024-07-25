@@ -1,5 +1,5 @@
 // components/About.js
-import '../fc/About.css';
+import '../frontend_css/About.css';
 
 const About = () => {
   return (
