@@ -7,4 +7,3 @@ json.array! @books do |book|
   json.created_at book.created_at
   json.updated_at book.updated_at
 end
-

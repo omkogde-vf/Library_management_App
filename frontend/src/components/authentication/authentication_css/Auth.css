@@ -1,0 +1,76 @@
+/* General container styling */
+.auth-container {
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #f0f2f5;
+  }
+  
+  /* Header styling */
+  .auth-header {
+    text-align: center;
+    margin-bottom: 20px;
+    width: 100%;
+  }
+  
+  .auth-header h1 {
+    font-size: 24px;
+    color: #333;
+    margin: 0; /* Ensure no extra margin around the header */
+  }
+  
+  /* Form container styling */
+  .auth-form {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+    max-height: 500px;
+  }
+  
+  /* Form styling */
+  .auth-form form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .auth-form form div {
+    margin-bottom: 15px;
+  }
+  
+  .auth-form label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+  }
+  
+  .auth-form input[type="email"],
+  .auth-form input[type="password"] {
+    padding: 10px;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .auth-form button {
+    margin-top: 15px;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    width: 100%;
+    height: 45px;
+    cursor: pointer;
+    margin-bottom: 12px;
+  }
+  
+  .auth-form button:hover {
+    background-color: #0056b3;
+  }
+  

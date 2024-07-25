@@ -3,4 +3,3 @@ class HomeController < ApplicationController
       render json: { message: 'Welcome to the Library Management App API' }
     end
 end
-  
