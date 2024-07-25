@@ -90,3 +90,4 @@ node_modules/
 frontend/src/components/user/User.jsx
 frontend/src/components/PrivateText.jsx
 .DS_Store
+frontend/src/reportWebVitals.js
