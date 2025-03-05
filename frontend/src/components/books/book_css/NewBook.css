@@ -1,0 +1,72 @@
+/* NewBook.css */
+.new-book-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Full viewport height */
+  background-image: url('../../../background.jpg'); /* Adjust the path if needed */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.form-container {
+  background-color: rgba(255, 255, 255, 0.9); /* Slightly opaque background */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 400px;
+  max-width: 100%;
+  text-align: center;
+  /* Remove align-items from here, it's not needed in this context */
+}
+
+h1 {
+  margin-bottom: 20px;
+}
+
+.new-book-form {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.new-book-form label {
+  margin-bottom: 5px;
+  text-align: left;
+}
+
+.new-book-form input {
+  margin-bottom: 15px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.new-book-form button {
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+}
+
+.new-book-form button:hover {
+  background-color: #0056b3;
+}
+
+.link-container {
+  margin-top: 20px;
+}
+
+.link-container a {
+  display: block;
+  margin-bottom: 10px;
+  color: #007bff;
+  text-decoration: none;
+}
+
+.link-container a:hover {
+  text-decoration: underline;
+}
